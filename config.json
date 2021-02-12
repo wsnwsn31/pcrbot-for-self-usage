@@ -328,7 +328,7 @@
 
 "12":{  
 	  "name":"杏奈",
-      "icon":" 🀄️ ",
+      "icon":"🀄️",
 	  "speed":[1,2,2,1,2,2,1,2,2],
 	  "skill":{
 				"1":{
@@ -353,8 +353,37 @@
 					}
 			   }
 
-	} 
+	} ,
 
+	
+"13":{  
+	  "name":"雪",
+      "icon":"🍆",
+	  "speed":[1,2,2,1,2,2,1],
+	  "skill":{
+				"1":{
+					"skill_porb":0.125,
+					"skill_text":"“锐利的剑，锐利的眼！”，雪突然向前2步。",
+					"skill_effect":"forward(id,2,position)\ngid=select_random(id)\ngive_pause(gid,1,pause)\ngive_silence(gid,1,silence)\ntext=f'{gid}号选手暂停并沉默一回合！'\ntext=prob_text(prob_backward(0.1,id,2,position),'雪累了，后退了两步。','')"
+					},
+				"2":{
+					"skill_porb":0.1,
+					"skill_text":"“我渴望有价值的对手！”，雪向前3步，除自己外第一名暂停并沉默一回合。",
+					"skill_effect":"forward(id,3,position)\ngive_pause(select_fast(position,id),1,pause)\ngive_silence(select_fast(position,id),1,silence)\ntext=prob_text(prob_backward(0.2,id,2,position),'雪累了，后退了两步。','')"
+					},		
+				"3":{
+					"skill_porb":0.075,
+					"skill_text":"雪发动了UB[拜倒在我的美貌之下吧，她们不敢还击！]，前进了5歩，其他所有人暂停一回合。",
+					"skill_effect":"forward(id,5,position)\nn_give_pause(select_all(id),1,pause)\ntext=prob_text(prob_backward(0.3,id,2,position),'雪累了，后退了两步。','')"
+					},
+				"4":{
+				    "skill_porb":0.03,
+				    "skill_text":"雪哥使用了最终奥义.大鸟转转转，其他所有人感到恐惧，暂停2回合，沉默2回合。",
+				    "skill_effect":"n_give_pause(select_all(id),2,pause)\nn_give_silence(select_all(id),2,silence)\ntext=prob_text(prob_backward(0.4,id,2,position),'雪累了，后退了两步。','')"
+					}
+			   }
+
+	}
 
 
 
